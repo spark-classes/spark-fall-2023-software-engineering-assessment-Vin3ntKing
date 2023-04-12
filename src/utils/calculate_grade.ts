@@ -20,7 +20,6 @@ export const fetchClassAssignment = async (classId: string): Promise<IAssignment
     headers: GET_DEFAULT_HEADERS(),
   });
   const json = await res.json();
-  //console.log(json);
   return json;
 };
 
@@ -33,8 +32,6 @@ export const fetchStudentGradeInClass = async (
     headers: GET_DEFAULT_HEADERS(),
   });
   const json = await res.json();
-  //console.log(json);
-  //console.log('fetchStudentGradeInClass:', json);
   return json;
 };
 
@@ -61,7 +58,6 @@ export const fetchClassStudents = async (classID: string): Promise<string[]> => 
     headers: GET_DEFAULT_HEADERS(),
   });
   const json = await res.json();
-  //console.log(Object.values(json))
   return Object.values(json);
 };
 

@@ -11,7 +11,6 @@ import StudentTable from "./components/GradeTable";
  */
 import { constructApiUrl, GET_DEFAULT_HEADERS, TOKEN } from "./globals";
 import { IUniversityClass, IUniversityStudent, IAssignment, IGrade} from "./types/api_types";
-import { calcAllFinalGrade } from "./utils/calculate_grade";
 
 function App() {
   // You will need to use more of these!
@@ -45,8 +44,7 @@ function App() {
     const json = await res.json();
     return json;
   };
-  //fetchStudentInfo('U125')
-  //fetchSomeData()
+  
 
   //I would use the following function to fetch the class info in the fall2022 semester
   //since in the documentation, we should only fetch class info in fall2022
@@ -58,7 +56,6 @@ function App() {
     const json = await res.json();
     //feed the return data to setClassList for dropdown box
     setClassList(json);
-    //console.log(json)
   }
   
 
@@ -73,7 +70,6 @@ function App() {
     const students = await Promise.all(studentPromises);
     setStudentsInClass(students);
   };
-  fetchStudentInClass('C129')
 
   //for the calculating part: lets start with simple get all the course assignment and student's grade on one class
   const fetchClassAssignment = async (classId: string): Promise<IAssignment> => {
@@ -82,10 +78,8 @@ function App() {
       headers: GET_DEFAULT_HEADERS(),
     });
     const json = await res.json();
-    //console.log(json)
     return json;
   }; 
-  //fetchClassAssignment('C129')
 
   const fetchStudentGradeInClass =async (studentId: string, classId: string): Promise<IGrade> => {
     const res = await fetch(constructApiUrl('student/listGrades/' +studentId + '/'+ classId), {
@@ -93,11 +87,9 @@ function App() {
       headers: GET_DEFAULT_HEADERS(),
     });
     const json = await res.json();
-    //console.log(json)
     return json;
   }
-  //fetchStudentGradeInClass('U123','C129')
-
+  
   useEffect(() => {
     fetchClassInfo();
   }, []);

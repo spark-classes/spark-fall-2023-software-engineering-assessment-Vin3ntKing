@@ -22,7 +22,6 @@ const StudentTable: React.FC<StudentTableProps> = ({ student, classId, className
   const flattenedStudents = student.flat();
   const sortedStudents = flattenedStudents.filter(student => student && student.universityId).sort((a, b) => a.universityId.localeCompare(b.universityId));
 
-  //console.log(student);
   
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -31,7 +30,6 @@ const StudentTable: React.FC<StudentTableProps> = ({ student, classId, className
 
 
   useEffect(() => {
-    //console.log("classId changed:", classId);
     const fetchFinalGrades = async () => {
       const grades = await calcAllFinalGrade(classId);
       setFinalGrades(grades);
@@ -53,7 +51,6 @@ const StudentTable: React.FC<StudentTableProps> = ({ student, classId, className
   };
 
   const getFinalGrade = (studentId: string) => {
-    console.log("Grade:",(finalGrades))
     const grade = finalGrades.find((g) => g.studentId === studentId);
     return grade ? grade.finalGrade.toString() : "";
   };
