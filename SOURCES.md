@@ -5,7 +5,7 @@ https://mui.com/material-ui/react-select/
 
 main sources are stackoverflow and documentation for react.
 
-Latest Update: 4/12/2023
+Latest Update: 4/12/2023 \
 The "performace" problem resolved..... the issue is I forgot to comment out the method call in the App.tsx. So, it keeps making API call, which use up all the resouces and make a huge number of Calling to the API...
 
 Alright, in the end, the program works find. 
@@ -16,7 +16,7 @@ Take a snap! And things get a lot eaier.....
 
 
 
-Update: 4/11/2023
+Update: 4/11/2023 \
 The result website looks like the following:
 ![](result.png)
 
