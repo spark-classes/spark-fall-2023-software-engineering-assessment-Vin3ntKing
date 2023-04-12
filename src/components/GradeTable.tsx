@@ -53,7 +53,7 @@ const StudentTable: React.FC<StudentTableProps> = ({ student, classId, className
   };
 
   const getFinalGrade = (studentId: string) => {
-    console.log("only printing:",typeof(finalGrades))
+    console.log("Grade:",(finalGrades))
     const grade = finalGrades.find((g) => g.studentId === studentId);
     return grade ? grade.finalGrade.toString() : "";
   };
